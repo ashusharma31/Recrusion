@@ -1,0 +1,25 @@
+https://www.codingninjas.com/codestudio/problems/subsequences-of-string_985087?leftPanelTab=1
+
+void getAllSubsequences(string str1, string str2, int index,vector<string>&ans)
+{
+    if(index == str1.size())
+    {
+        if(str2!="")
+        ans.push_back(str2);
+        return;
+    }
+     getAllSubsequences(str1,str2+str1[index],index+1,ans);
+     getAllSubsequences(str1,str2,index+1,ans);
+    
+}
+vector<string> subsequences(string str){
+	
+	// Write your code here
+    vector<string> ans;
+    getAllSubsequences(str,"",0,ans);
+    return ans;
+	
+}
+
+TC : 2^n;
+SC:  O(n)
